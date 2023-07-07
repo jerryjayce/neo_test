@@ -8,7 +8,31 @@ export default class ScheduleController {
     static async get_schedules(req: Request, res: Response) {
         try {
 
-            const data: any = await ScheduleService.get_schedules();
+            const data: any = await ScheduleService.get_schedules(req);
+
+            return ResponseHelper.send_response(res, data?.http_status || 200, data?.data, data?.message);
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    static async get_driver_schedule(req: Request, res: Response) {
+        try {
+
+            const data: any = await ScheduleService.get_driver_schedule(req);
+
+            return ResponseHelper.send_response(res, data?.http_status || 200, data?.data, data?.message);
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    static async get_vehicle_schedule(req: Request, res: Response) {
+        try {
+
+            const data: any = await ScheduleService.get_vehicle_schedule(req);
 
             return ResponseHelper.send_response(res, data?.http_status || 200, data?.data, data?.message);
 
