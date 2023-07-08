@@ -39,7 +39,8 @@ export class AuthService {
                 user,
                 token: await jwt.sign(
                     user,
-                    process.env.JWT_SECRET
+                    process.env.JWT_SECRET,
+                    { expiresIn: '1d' }
                 )
             };
 
