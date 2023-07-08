@@ -11,7 +11,7 @@ export class AuthRepository {
                     email: email
                 },
                 attributes: {
-                    exclude: ["id", "createdAt", "updatedAt"]
+                    exclude: ["createdAt", "updatedAt"]
                 }
             });
 
