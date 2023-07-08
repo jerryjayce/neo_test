@@ -1,0 +1,5 @@
+NODE_PORT=3000
+JWT_SECRET="...🙃..."
+NODE_ENV=development
+SQL_DB_URL=mysql://username:password@localhost:3306/dbname
+SQL_DB_LOG=true
