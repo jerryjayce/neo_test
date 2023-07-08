@@ -49,10 +49,26 @@ export class ScheduleRepository {
         try {
 
             const model_config: any = {
-                raw: true,
                 where: {
                     id: params.id
                 },
+                include:[
+                    {
+                        model: db.driver,
+                        as: 'driver',
+                        attributes: ['full_name']
+                    },
+                    {
+                        model: db.client,
+                        as: 'client',
+                        attributes: ['full_name']
+                    },
+                    {
+                        model: db.vehicle,
+                        as: 'vehicle',
+                        attributes: ['make', 'model']
+                    }
+                ]
             };
 
             return await db.schedule.findAll(model_config);

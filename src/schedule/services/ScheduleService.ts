@@ -31,7 +31,7 @@ export class ScheduleService {
 
         try {
 
-            const schedules = await ScheduleRepository.fetch_schedule_details(req.query);
+            const schedules = await ScheduleRepository.fetch_schedule_details(req.params);
 
             response.message = schedules.length === 0 ? "Schedule not found" : "successful";
             response.data = schedules;

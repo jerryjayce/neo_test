@@ -11,6 +11,21 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
+            schedule.belongsTo(models.driver, {
+                foreignKey: "driver_id",
+                as: "driver"
+            });
+
+            schedule.belongsTo(models.client, {
+                foreignKey: "client_id",
+                as: "client"
+            });
+
+            schedule.belongsTo(models.vehicle, {
+                foreignKey: "vehicle_id",
+                as: "vehicle"
+            });
+
         }
     }
 
