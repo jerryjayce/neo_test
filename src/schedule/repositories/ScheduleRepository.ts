@@ -45,6 +45,24 @@ export class ScheduleRepository {
 
     }
 
+    static async fetch_schedule_details(params: any = {}): Promise<any> {
+        try {
+
+            const model_config: any = {
+                raw: true,
+                where: {
+                    id: params.id
+                },
+            };
+
+            return await db.schedule.findAll(model_config);
+
+        } catch (e) {
+            console.log("error fetching schedules", e);
+        }
+
+    }
+
     static async fetch_driver_schedule(query: any = {}, params: any): Promise<any> {
         try {
 
