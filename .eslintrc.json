@@ -1,0 +1,38 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "tsconfig.json"
+    },
+    "env": {
+        "es2020": true,
+        "node": true,
+        "mocha": true
+    },
+    "extends": [
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "overrides": [
+        {
+            "files": ["*.js"],
+            "rules": {
+                "@typescript-eslint/no-var-requires": "off",
+                "@typescript-eslint/no-unused-vars": "off",
+                "no-underscore-dangle": "off",
+                "@typescript-eslint/default-param-last": "off"
+            }
+        }
+    ],
+    "plugins": ["node"],
+    "rules": {
+        "import/prefer-default-export": "off",
+        "func-names": "off",
+        "class-methods-use-this": "off",
+        "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-unused-vars": "error",
+        "indent": ["error", 4]
+    }
+}
