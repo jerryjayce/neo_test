@@ -18,7 +18,9 @@ export class DriverService {
         } catch (e) {
             response.message = "An error occurred";
             response.http_status = 500;
+
             console.log("An error occurred", e);
+            return response;
         }
     }
 

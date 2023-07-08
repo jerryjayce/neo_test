@@ -14,6 +14,7 @@ export default class ScheduleController {
 
         } catch (e) {
             console.log(e);
+            return ResponseHelper.send_response(res, 500, {}, "An error occurred");
         }
     }
 
@@ -39,6 +40,7 @@ export default class ScheduleController {
 
         } catch (e) {
             console.log(e);
+            return ResponseHelper.send_response(res, 500, {}, "An error occurred");
         }
     }
 
@@ -51,6 +53,7 @@ export default class ScheduleController {
 
         } catch (e) {
             console.log(e);
+            return ResponseHelper.send_response(res, 500, {}, "An error occurred");
         }
     }
 }

@@ -14,6 +14,7 @@ export default class DriverController {
 
         } catch (e) {
             console.log(e);
+            return ResponseHelper.send_response(res, 500, {}, "An error occurred");
         }
     }
 
