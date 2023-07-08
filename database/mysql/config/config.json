@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "testDb",
+    "password": "ADLSKFNON0923U4322wekfn",
+    "database": "testDb",
+    "host": "testdb.cd1mel6wxdt7.us-west-2.rds.amazonaws.com",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "testDb",
+    "password": "ADLSKFNON0923U4322wekfn",
+    "database": "testDb",
+    "host": "testdb.cd1mel6wxdt7.us-west-2.rds.amazonaws.com",
+    "dialect": "mysql"
+  }
+}
