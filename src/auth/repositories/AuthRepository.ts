@@ -1,12 +1,18 @@
-import { db } from "../../../database/mongo_db/connectToCluster";
+import db from "../../../database/mysql/models";
 
 
 export class AuthRepository {
 
-    static async get_user(email: string): Promise<any> {
+    static async fetch_user(email: string): Promise<any> {
         try {
-            return db.collection("user").findOne({
-                email: email
+            return db.user.findOne({
+                raw: true,
+                where: {
+                    email: email
+                },
+                attributes: {
+                    exclude: ["id", "createdAt", "updatedAt"]
+                }
             });
 
         } catch (e) {

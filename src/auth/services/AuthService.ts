@@ -2,17 +2,20 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { AuthRepository } from "../repositories";
 import { ResponseHelper } from "../../utils/ResponseHelper";
+import { Request } from "express";
 
 export class AuthService {
-    static async login(email: string, password: string): Promise<object> {
+    static async login(req: Request): Promise<object> {
 
         const response: any = ResponseHelper.response_object();
 
         try {
 
-            const user_details = await AuthRepository.get_user(email);
+            const { email, password } = req.body;
+            const user = await AuthRepository.fetch_user(email);
 
-            if (!user_details) {
+
+            if (!user) {
 
                 response.message = "Incorrect user name or password";
                 response.http_status = 401;
@@ -20,7 +23,7 @@ export class AuthService {
 
             }
 
-            const check_pass = await bcrypt.compare(password, user_details.password);
+            const check_pass = await bcrypt.compare(password, user.password);
 
             if (!check_pass) {
                 response.message = "Incorrect user name or password";
@@ -30,13 +33,12 @@ export class AuthService {
 
 
             //TODO remove sensitive data
-            delete user_details.password;
-            delete user_details.role;
+            delete user.password;
 
             response.data = {
-                user_details,
+                user,
                 token: await jwt.sign(
-                    user_details,
+                    user,
                     process.env.JWT_SECRET
                 )
             };
@@ -51,8 +53,6 @@ export class AuthService {
             console.log("An error occurred during login", e);
             return response;
         }
-
-        // return this.adminRepository.getBestProfession(start, end);
     }
 
 }

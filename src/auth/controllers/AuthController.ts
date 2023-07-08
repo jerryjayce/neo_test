@@ -8,11 +8,9 @@ export default class AuthController {
     static async login(req: Request, res: Response) {
         try {
 
-            const { email, password } = req.body;
+            const data: any = await AuthService.login(req);
 
-            const data: any = await AuthService.login(email, password);
-
-            return ResponseHelper.send_response(res, data?.http_status || 200, data.data);
+            return ResponseHelper.send_response(res, data?.http_status || 200, data.data, data?.message);
 
         } catch (e) {
             console.log(e);
