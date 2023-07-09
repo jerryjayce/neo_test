@@ -26,8 +26,8 @@ export class ResponseHelper {
                 response["message"] = response?.message || "Created Successfully";
                 break;
             case 203:
-                response["error"] = true;
-                response["message"] = response?.message || "An Error Occured";
+                response["error"] = false;
+                response["message"] = response?.message || "successful";
                 break;
             case 204:
                 break;
