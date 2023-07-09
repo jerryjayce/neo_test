@@ -13,7 +13,7 @@
     "seed:all": "npx sequelize-cli db:seed:all",
     "seed:undo": "npx sequelize-cli db:seed:undo",
     "prepare-db": "npm run migration:run && npm run seed:all",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Jeremiah Ezuzu",
   "license": "UNLICENSED",
@@ -22,6 +22,7 @@
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "mocha": "^10.2.0",
     "prettier": "^2.8.3",
     "sequelize-cli": "^6.6.0",
     "ts-node": "^10.9.1",
