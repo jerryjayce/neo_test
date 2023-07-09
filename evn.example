@@ -1,5 +1,6 @@
 NODE_PORT=3000
 JWT_SECRET="...🙃..."
 NODE_ENV=development
-SQL_DB_URL=mysql://username:password@localhost:3306/dbname
+SQL_DB_URL=testdb.cd1mel6wxdt7.us-west-2.rds.amazonaws.com
 SQL_DB_LOG=true
+SQL_DB_PASSWORD=pwsdfsafwe23
