@@ -1,6 +1,8 @@
 NODE_PORT=3000
-JWT_SECRET="...🙃..."
+JWT_SECRET=your_secret
 NODE_ENV=development
-SQL_DB_URL=testdb.cd1mel6wxdt7.us-west-2.rds.amazonaws.com
+SQL_DB_URL=mysql_db_url
 SQL_DB_LOG=true
-SQL_DB_PASSWORD=pwsdfsafwe23
+SQL_DB_PASSWORD=db_password
+MONGO_DB_URI=mongo_url
+MONGO_DB_NAME=db_name
