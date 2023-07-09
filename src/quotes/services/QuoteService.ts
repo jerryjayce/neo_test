@@ -20,7 +20,7 @@ export class QuoteService {
             await QuoteRepository.update_quote(req.body, parseInt(req.params?.id));
 
 
-            response.message = "quote updated successfully";
+            response.message = "Quote updated successfully";
             response.data = {};
 
             return response;

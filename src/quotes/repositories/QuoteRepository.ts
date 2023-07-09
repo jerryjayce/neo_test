@@ -20,7 +20,7 @@ export class QuoteRepository {
         try {
 
             await db.collection("quotes").updateOne(
-                { id },
+                { id: `${id}` },
                 { $set: quote }
             );
 
