@@ -16,6 +16,17 @@ export class QuoteRepository {
 
     }
 
+    static async fetch_all_quote(): Promise<any> {
+        try {
+
+            return await db.collection("quotes").find().sort({ field: -1 }).toArray();
+
+        } catch (e) {
+            console.log("error fetching quote", e);
+        }
+
+    }
+
     static async update_quote(quote: object, id: number): Promise<any> {
         try {
 

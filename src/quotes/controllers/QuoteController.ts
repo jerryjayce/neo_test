@@ -18,4 +18,17 @@ export default class QuoteController {
         }
     }
 
+    static async get_quote(req: Request, res: Response) {
+        try {
+
+            const data: any = await QuoteService.get_quote();
+
+            return ResponseHelper.send_response(res, data?.http_status || 200, data?.data, data?.message);
+
+        } catch (e) {
+            console.log(e);
+            return ResponseHelper.send_response(res, 500, {}, "An error occurred");
+        }
+    }
+
 }

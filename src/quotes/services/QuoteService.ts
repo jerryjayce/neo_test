@@ -34,5 +34,35 @@ export class QuoteService {
         }
     }
 
+    static async get_quote(): Promise<object> {
+
+        const response: any = ResponseHelper.response_object();
+
+        try {
+            const all_quotes = await QuoteRepository.fetch_all_quote();
+
+            console.log({all_quotes});
+
+            if (!all_quotes?.length) {
+                response.message = "Quotes not available";
+                response.data = {};
+                response.http_status = 200;
+                return response;
+            }
+
+            response.message = "successful";
+            response.data = all_quotes;
+
+            return response;
+
+        } catch (e) {
+            response.message = "An error occurred";
+            response.http_status = 500;
+
+            console.log("An error occurred", e);
+            return response;
+        }
+    }
+
 
 }
