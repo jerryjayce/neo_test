@@ -1,0 +1,1 @@
+export { QuoteRepository } from './QuoteRepository';
