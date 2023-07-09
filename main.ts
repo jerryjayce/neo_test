@@ -7,7 +7,7 @@ const PORT = parseInt(processPort, 10);
 const ENV = process.env.NODE_ENV || "development";
 
 app.listen(PORT, async () => {
-    // await connectToCluster();
+    await connectToCluster();
     console.log(`App running in ${ENV} mode on port ${PORT}`);
 
 });

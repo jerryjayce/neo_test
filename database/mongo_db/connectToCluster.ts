@@ -1,14 +1,9 @@
 import { MongoClient } from "mongodb";
-import { config } from "dotenv";
-import mongo_config from "./config.js";
-
-
-config();
 
 export let db;
 export const connectToCluster = async () => {
-    const uri = mongo_config.MONGO_DB_URI;
-    const db_name = mongo_config.MONGO_DB_NAME;
+    const uri = process.env.MONGO_DB_URI;
+    const db_name = process.env.MONGO_DB_NAME;
     let mongoClient;
 
     try {
